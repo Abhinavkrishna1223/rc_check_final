@@ -1,8 +1,12 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
-const SearchBar = ({ onSearch }) => {
-  const [carNumber, setCarNumber] = useState("");
+const SearchBar = ({ onSearch, defaultNumber }) => {
+  const [carNumber, setCarNumber] = useState(defaultNumber || ""); // Use defaultNumber from props
+
+  useEffect(() => {
+    setCarNumber(defaultNumber || ""); // Update input when defaultNumber changes
+  }, [defaultNumber]);
 
   const handleSearch = () => {
     if (carNumber.trim()) {
