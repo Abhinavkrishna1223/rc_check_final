@@ -137,6 +137,63 @@ const Home = () => {
   //     }
   //   }, 4000);
   // };
+  // const generatePDF = async () => {
+  //   if (!pdfRef.current) return;
+  
+  //   const loadImages = async () => {
+  //     const images = pdfRef.current.querySelectorAll("img");
+  //     const promises = [];
+  
+  //     images.forEach((img) => {
+  //       if (!img.complete) {
+  //         promises.push(new Promise((resolve) => (img.onload = img.onerror = resolve)));
+  //       }
+  //     });
+  
+  //     return Promise.all(promises);
+  //   };
+  
+  //   await loadImages();
+  
+  //   setTimeout(async () => {
+  //     try {
+  //       const desktopWidth = 1024; // Force desktop width
+  //       const a4Width = 210; // A4 width in mm
+  //       const a4Height = 297; // A4 height in mm
+  //       const scaleFactor = 3; // Ensures high-quality rendering
+  
+  //       const canvas = await html2canvas(pdfRef.current, {
+  //         scale: scaleFactor,
+  //         useCORS: true,
+  //         backgroundColor: "#ffffff",
+  //         imageTimeout: 3000,
+  //         width: desktopWidth, // Forces desktop width
+  //         windowWidth: desktopWidth,
+  //       });
+  
+  //       const imgData = canvas.toDataURL("image/jpeg", 0.8); // Using JPEG for smaller size
+  
+  //       const pdf = new jsPDF("p", "mm", "a4");
+  //       const imgWidth = a4Width - 20; // Keep margins
+  //       const imgHeight = (canvas.height * imgWidth) / canvas.width;
+  
+  //       let yPosition = 10;
+  //       while (yPosition < imgHeight) {
+  //         pdf.addImage(imgData, "JPEG", 10, yPosition * -1, imgWidth, imgHeight);
+  //         yPosition += a4Height;
+  
+  //         if (yPosition < imgHeight) {
+  //           pdf.addPage();
+  //         }
+  //       }
+  
+  //       pdf.save(`Vehicle_RC_${number || "Unknown"}.pdf`);
+  //     } catch (error) {
+  //       console.error("Error generating PDF:", error);
+  //     }
+  //   }, 1000);
+  // };
+  
   const generatePDF = async () => {
     if (!pdfRef.current) return;
   
@@ -161,6 +218,7 @@ const Home = () => {
         const a4Width = 210; // A4 width in mm
         const a4Height = 297; // A4 height in mm
         const scaleFactor = 3; // Ensures high-quality rendering
+        const topPadding = 20; // Add 20mm padding from top
   
         const canvas = await html2canvas(pdfRef.current, {
           scale: scaleFactor,
@@ -177,13 +235,15 @@ const Home = () => {
         const imgWidth = a4Width - 20; // Keep margins
         const imgHeight = (canvas.height * imgWidth) / canvas.width;
   
-        let yPosition = 10;
+        let yPosition = topPadding; // Start with top padding
+  
         while (yPosition < imgHeight) {
-          pdf.addImage(imgData, "JPEG", 10, yPosition * -1, imgWidth, imgHeight);
+          pdf.addImage(imgData, "JPEG", 10, yPosition, imgWidth, imgHeight); // Apply top padding
           yPosition += a4Height;
   
           if (yPosition < imgHeight) {
             pdf.addPage();
+            yPosition = topPadding; // Reset for new page
           }
         }
   
@@ -194,7 +254,6 @@ const Home = () => {
     }, 1000);
   };
   
-
   return (
     <div className="flex flex-col justify-start items-center w-full min-h-screen bg-gray-100 overflow-auto py-6">
       <div className="w-full max-w-5xl bg-white rounded-xl shadow-lg p-6">
