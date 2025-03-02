@@ -130,13 +130,14 @@ const Backdesign = ({ vehicle, number }) => {
             <p className="text-[12px]">{vehicle.financier || "N/A"}</p>
           </div>
 
-          {/* Right Column - Vertical Text */}
-          <div className="w-[5%] flex items-center">
+    
+          {/* Right Column - Vertical Text (Hidden in PDF) */}
+          <div className="relative w-[5%] flex justify-center items-center from-23A">
             <span
-              className="text-[16px] whitespace-nowrap"
+              className="absolute right-0 top-1/2 transform -translate-y-1/2 text-[16px]"
               style={{
                 writingMode: "vertical-rl",
-                transform: "rotate(180deg)",
+                transform: "rotate(180deg) translateY(50%)",
               }}
             >
               From 23A
