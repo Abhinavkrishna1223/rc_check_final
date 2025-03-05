@@ -70,7 +70,6 @@ const Home = () => {
     setLoading(true);
     setError("");
     setVehicle(null);
-    setIsGeneratingPDF(true);
     try {
       const vehicleData = await fetchVehicleData(carNumber);
 

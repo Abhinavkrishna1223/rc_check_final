@@ -27,7 +27,6 @@ const SearchBar = ({ onSearch, defaultNumber }) => {
         value={carNumber}
         onChange={(e) => setCarNumber(e.target.value)}
         className="px-4 py-3 border border-gray-300 rounded-lg w-full sm:flex-1 text-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
-        whileFocus={{ scale: 1.05 }}
       />
       <motion.button
         onClick={handleSearch}

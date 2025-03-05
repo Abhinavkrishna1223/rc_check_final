@@ -1,5 +1,7 @@
 /* eslint-disable react/prop-types */
 import { motion } from "framer-motion";
+import lion from '../../assets/ashokStamb.png';
+import chip from '../../assets/chip.jpg';
 
 const Frontdesign = ({ vehicle }) => {
   if (!vehicle) return null;
@@ -16,7 +18,7 @@ const Frontdesign = ({ vehicle }) => {
         <div className="flex flex-col md:flex-row w-full justify-center items-center md:justify-between p-2 bg-gray-200 mb-2">
           {/* Government Logo */}
           <img
-            src="https://pngimg.com/uploads/coat_arms_india/small/coat_arms_india_PNG17.png"
+            src={lion}
             alt="Government Logo"
             className="h-20"
           />
@@ -27,7 +29,7 @@ const Frontdesign = ({ vehicle }) => {
               Indian Union Vehicle Registration Certificate
             </h3>
             <h5 className="text-[12px] md:text-[16px]">
-              Issued by Government of {vehicle.registered_at}
+              Issued by Government of {vehicle?.registered_at}
             </h5>
           </div>
 
@@ -48,7 +50,7 @@ const Frontdesign = ({ vehicle }) => {
           <div className="flex flex-col justify-left md:justify-between w-full md:w-[20%]">
             <img
               className="hidden md:flex"
-              src="https://png.pngtree.com/png-vector/20221107/ourmid/pngtree-sim-card-chip-icon-call-digital-vector-png-image_40148238.jpg"
+              src={chip}
               alt="Chip"
             />
 
@@ -57,11 +59,11 @@ const Frontdesign = ({ vehicle }) => {
               <h3 className="text-[13px] md:text-[16px]">
                 <b>Fuel</b>
               </h3>
-              <h6 className="text-[12px] md:text-[14px]">{vehicle.vehicle_data.fuel_type}</h6>
+              <h6 className="text-[12px] md:text-[14px]">{vehicle?.vehicle_data?.fuel_type}</h6>
               <h3 className="text-[13px] md:text-[16px]">
                 <b>Emission Norms</b>
               </h3>
-              <h6 className="text-[12px] md:text-[14px]">{vehicle.norms_type}</h6>
+              <h6 className="text-[12px] md:text-[14px]">{vehicle?.norms_type}</h6>
             </div>
           </div>
 
