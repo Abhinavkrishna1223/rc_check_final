@@ -60,7 +60,7 @@ const Home = () => {
   const [loading, setLoading] = useState(false);
   const [number, setNumber] = useState("");
   const [error, setError] = useState("");
-
+  const [hideFrom23A, setHideFrom23A] = useState(false); 
   const pdfRef = useRef();
   const [searchParams] = useSearchParams(); // Get URL query parameters
 
@@ -196,7 +196,7 @@ const Home = () => {
 
   const generatePDF = async () => {
     if (!pdfRef.current) return;
-
+    setHideFrom23A(true);
     const loadImages = async () => {
       const images = pdfRef.current.querySelectorAll("img");
       const promises = [];
@@ -248,8 +248,10 @@ const Home = () => {
         }
 
         pdf.save(`Vehicle_RC_${number || "Unknown"}.pdf`);
+        setHideFrom23A(false);
       } catch (error) {
         console.error("Error generating PDF:", error);
+        setHideFrom23A(false);
       }
     }, 1000);
   };
@@ -298,7 +300,7 @@ const Home = () => {
           <Frontdesign vehicle={vehicle} />
         </div>
         <div className="w-full max-w-3xl">
-          <Backdesign vehicle={vehicle} number={number} />
+          <Backdesign vehicle={vehicle} number={number} hideFrom23A={hideFrom23A}/>
         </div>
       </div>
     )}

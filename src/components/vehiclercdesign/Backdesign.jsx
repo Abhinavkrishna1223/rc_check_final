@@ -2,7 +2,7 @@
 import { motion } from "framer-motion";
 import QRCode from "react-qr-code";
 
-const Backdesign = ({ vehicle, number }) => {
+const Backdesign = ({ vehicle, number ,hideFrom23A}) => {
   if (!vehicle) return null;
 
   // Get the Vite environment variable for the QR Code URL
@@ -131,6 +131,7 @@ const Backdesign = ({ vehicle, number }) => {
           </div>
 
           {/* Right Column - Vertical Text */}
+          {!hideFrom23A && (
           <div className="w-[5%] flex items-center">
             <span
               className="text-[16px] whitespace-nowrap"
@@ -142,6 +143,7 @@ const Backdesign = ({ vehicle, number }) => {
               From 23A
             </span>
           </div>
+        )}
         </div>
       </div>
     </motion.div>
