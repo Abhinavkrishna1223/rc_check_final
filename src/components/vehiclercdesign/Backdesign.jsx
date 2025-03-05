@@ -13,7 +13,7 @@ const Backdesign = ({ vehicle, number }) => {
 
   return (
     <motion.div
-      className="bg-gray-50 p-6 rounded-lg shadow-lg mt-6 text-gray-900"
+      className="bg-gray-50 rounded-lg shadow-lg mt-6 text-gray-900"
       initial={{ opacity: 0, scale: 0.9 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.5 }}
@@ -130,14 +130,13 @@ const Backdesign = ({ vehicle, number }) => {
             <p className="text-[12px]">{vehicle.financier || "N/A"}</p>
           </div>
 
-    
-          {/* Right Column - Vertical Text (Hidden in PDF) */}
-          <div className="relative w-[5%] flex justify-center items-center from-23A">
+          {/* Right Column - Vertical Text */}
+          <div className="w-[5%] flex items-center">
             <span
-              className="absolute right-0 top-1/2 transform -translate-y-1/2 text-[16px]"
+              className="text-[16px] whitespace-nowrap"
               style={{
                 writingMode: "vertical-rl",
-                transform: "rotate(180deg) translateY(50%)",
+                transform: "rotate(180deg)",
               }}
             >
               From 23A

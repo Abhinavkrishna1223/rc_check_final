@@ -8,7 +8,7 @@ const Frontdesign = ({ vehicle }) => {
 
   return (
     <motion.div
-      className="bg-gray-50 p-6 rounded-lg shadow-lg mt-6 text-gray-900"
+      className="bg-gray-50 rounded-lg shadow-lg mt-6 text-gray-900"
       initial={{ opacity: 0, scale: 0.9 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.5 }}
