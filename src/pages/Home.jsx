@@ -10,7 +10,7 @@ import Backdesign from "../components/vehiclercdesign/Backdesign";
 import jsPDF from "jspdf";
 import html2canvas from "html2canvas-pro";
 import { fetchVehicleData } from "../api";
-import homeImg from './../assets/Main2.png'
+import homeImg from './../assets/Main22.png'
 import './Home.css';
 import Afterscandata from "../components/Afterscandata";
 
@@ -164,9 +164,9 @@ const Home = () => {
     <div
       className="home flex flex-col justify-start items-center w-full min-h-screen bg-gray-100 overflow-auto py-6"
     >
-      <img className=" md:hidden block w-full h-[140px]" src={homeImg} alt="" />
+      <img className=" block w-full h-[60px] md:h-[120px]" src={homeImg} alt="" />
       {/* Search Section (Fixed Positioning) */}
-      <div className="w-full max-w-5xl bg-white rounded-xl shadow-lg p-6 flex-grow-0 mt-[15%]">
+      <div className="w-full max-w-5xl bg-white rounded-xl shadow-lg p-6 flex-grow-0 mt-[30px] md:mt-[5%]">
         <motion.h1
           className=" hidden md:block font-bold text-center text-black mb-6 md:text-3xl"
           initial={{ opacity: 0, y: -20 }}
@@ -198,7 +198,7 @@ const Home = () => {
       {vehicle && (
         <div
           ref={pdfRef}
-          className="w-full max-w-5xl flex flex-col items-center space-y-4 mt-6 p-4 bg-white flex-grow-0"
+          className="w-full max-w-5xl flex flex-col items-center space-y-4 mt-6 p-4 flex-grow-0"
         >
           <div className="w-full max-w-3xl">
             <Frontdesign vehicle={vehicle} number={number} />
@@ -220,10 +220,6 @@ const Home = () => {
           </button>
         </div>
       )}
-
-      <div className="hidden">
-        <Afterscandata vehicle={vehicle} number={number} />
-      </div>
     </div>
 
 
