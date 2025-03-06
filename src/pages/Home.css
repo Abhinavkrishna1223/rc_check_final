@@ -1,12 +1,11 @@
 .home {
-    background: url("../assets/TMsquare.jpeg");
+    background: black;
     background-size: cover;
     background-repeat: no-repeat;
 }
 
 @media (max-width: 768px) {
     .home {
-       background: none;
        padding: 10px;
     }
 }

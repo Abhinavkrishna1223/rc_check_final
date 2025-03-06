@@ -6,7 +6,7 @@ const Backdesign = ({ vehicle, number ,hideFrom23A}) => {
   if (!vehicle) return null;
 
   // Get the Vite environment variable for the QR Code URL
-  const baseURL = import.meta.env.VITE_HOST_URL || "http://localhost:5173";
+  const baseURL = import.meta.env.VITE_HOST_URL || "http://localhost:5173/details";
 
   // Generate the QR Code URL with the vehicle registration number
   const qrCodeURL = `${baseURL}?RC_NUMBER=${number || "N/A"}`;
