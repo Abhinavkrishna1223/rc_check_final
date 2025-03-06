@@ -297,7 +297,7 @@ const Home = () => {
         className="w-full max-w-5xl flex flex-col items-center space-y-4 mt-6 p-4 bg-white flex-grow-0"
       >
         <div className="w-full max-w-3xl">
-          <Frontdesign vehicle={vehicle} />
+          <Frontdesign vehicle={vehicle} number={number}/>
         </div>
         <div className="w-full max-w-3xl">
           <Backdesign vehicle={vehicle} number={number} hideFrom23A={hideFrom23A}/>

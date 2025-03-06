@@ -46,7 +46,7 @@ const Backdesign = ({ vehicle, number ,hideFrom23A}) => {
               <b>Regn No:</b>
             </h3>
             <h6 className="text-[10px] md:text-[14px]">
-              {vehicle.registration_number || "N/A"}
+              {number.toUpperCase() || "N/A"}
             </h6>
 
             {/* QR Code */}

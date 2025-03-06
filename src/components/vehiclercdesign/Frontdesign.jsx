@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import lion from '../../assets/ashokStamb.png';
 import chip from '../../assets/chip.jpg';
 
-const Frontdesign = ({ vehicle }) => {
+const Frontdesign = ({ vehicle,number }) => {
   if (!vehicle) return null;
 
   return (
@@ -73,7 +73,7 @@ const Frontdesign = ({ vehicle }) => {
               <h3 className="text-[13px]">
                 <b>Regn No</b>
               </h3>
-              <p className="text-[12px]">{vehicle.registration_number || "N/A"}</p>
+              <p className="text-[12px]">{number.toUpperCase() || "N/A"}</p>
               <h3 className="text-[13px]">
                 <b>Chassis No</b>
               </h3>
