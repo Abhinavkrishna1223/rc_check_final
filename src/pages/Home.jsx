@@ -12,7 +12,6 @@ import html2canvas from "html2canvas-pro";
 import { fetchVehicleData } from "../api";
 import homeImg from './../assets/Main22.png'
 import './Home.css';
-import Afterscandata from "../components/Afterscandata";
 
 // 📌 Static Vehicle Data (Use when API is not working)
 const STATIC_VEHICLE_DATA = {
