@@ -164,6 +164,7 @@ const Home = () => {
       className="home flex flex-col justify-start items-center w-full min-h-screen bg-gray-100 overflow-auto py-6"
     >
       <img className=" block w-full h-[60px] md:h-[120px]" src={homeImg} alt="" />
+      
       {/* Search Section (Fixed Positioning) */}
       <div className="w-full max-w-5xl bg-white rounded-xl shadow-lg p-6 flex-grow-0 mt-[30px] md:mt-[5%]">
         <motion.h1
