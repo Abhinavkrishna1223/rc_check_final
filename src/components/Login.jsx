@@ -80,7 +80,7 @@ function Login() {
 
                         <div>
                             <button
-                                style={{ background: "#6a43f6" }}
+                                style={{ background: "#0daab1" }}
                                 type="submit"
                                 className="flex w-full justify-center rounded-md bg-indigo-800 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                             >
