@@ -8,9 +8,14 @@ const Backdesign = ({ vehicle, number ,hideFrom23A}) => {
   
   // Create an object containing all the RC data
   const rcData = {
-    registrationNumber: vehicle.registration_number || "N/A",
+    registrationNumber: number || "N/A",
+    regdate: vehicle?.issue_date,
+    manufac: vehicle?.vehicle_data?.maker_description || "N/A",
+    fuel: vehicle?.vehicle_data?.fuel_type,
     vehicleClass: vehicle.vehicle_data.category_description,
-    manufacturedDate: vehicle.vehicle_data.manufactured_date,
+    chasisno: vehicle?.vehicle_data?.chassis_number,
+    engineno: vehicle?.vehicle_data?.engine_number,
+    manufacturedDate: vehicle?.vehicle_data?.manufactured_date,
     numberOfCylinders: vehicle.vehicle_data.number_of_cylinders,
     maker: vehicle.vehicle_data.maker_description,
     model: vehicle.vehicle_data.maker_model,
@@ -20,7 +25,13 @@ const Backdesign = ({ vehicle, number ,hideFrom23A}) => {
     unladenWeight: vehicle.vehicle_data.unladen_weight,
     cubicCapacity: vehicle.vehicle_data.cubic_capacity,
     wheelBase: vehicle.vehicle_data.wheelbase,
-    financier: vehicle.financier || "N/A"
+    financier: vehicle.financier || "N/A",
+    ownername: vehicle?.owner_data?.name,
+    owner_relation: vehicle?.owner_data?.father_name,
+    adress: vehicle?.owner_data?.permanent_address,
+    ownerserial: vehicle?.owner_data?.serial,
+    regnvalidity: vehicle?.expiry_date || "N/A",
+    issue_auth: vehicle?.registered_at
   };
 
   // Convert the RC data to a JSON string for the QR code
