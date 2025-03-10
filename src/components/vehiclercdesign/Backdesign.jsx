@@ -5,11 +5,26 @@ import QRCode from "react-qr-code";
 const Backdesign = ({ vehicle, number ,hideFrom23A}) => {
   if (!vehicle) return null;
 
-  // Get the Vite environment variable for the QR Code URL
-  const baseURL = import.meta.env.VITE_HOST_URL || "http://localhost:5173/details";
+  
+  // Create an object containing all the RC data
+  const rcData = {
+    registrationNumber: vehicle.registration_number || "N/A",
+    vehicleClass: vehicle.vehicle_data.category_description,
+    manufacturedDate: vehicle.vehicle_data.manufactured_date,
+    numberOfCylinders: vehicle.vehicle_data.number_of_cylinders,
+    maker: vehicle.vehicle_data.maker_description,
+    model: vehicle.vehicle_data.maker_model,
+    color: vehicle.vehicle_data.color,
+    bodyType: vehicle.vehicle_data.body_type,
+    seatingCapacity: vehicle.vehicle_data.seating_capacity,
+    unladenWeight: vehicle.vehicle_data.unladen_weight,
+    cubicCapacity: vehicle.vehicle_data.cubic_capacity,
+    wheelBase: vehicle.vehicle_data.wheelbase,
+    financier: vehicle.financier || "N/A"
+  };
 
-  // Generate the QR Code URL with the vehicle registration number
-  const qrCodeURL = `${baseURL}?RC_NUMBER=${number || "N/A"}`;
+  // Convert the RC data to a JSON string for the QR code
+  const rcDataString = JSON.stringify(rcData);
 
   return (
     <motion.div
@@ -50,7 +65,7 @@ const Backdesign = ({ vehicle, number ,hideFrom23A}) => {
             </h6>
 
             {/* QR Code */}
-            <QRCode value={qrCodeURL} size={60} />
+            <QRCode value={rcDataString} size={60} />
 
             <h3 className="text-[10px] md:text-[14px]">
               <b>Month-Year Mfg:</b>
